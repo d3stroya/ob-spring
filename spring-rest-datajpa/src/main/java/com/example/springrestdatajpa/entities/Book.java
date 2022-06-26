@@ -1,4 +1,4 @@
-package com.example.springrestdatajpa;
+package com.example.springrestdatajpa.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
