@@ -30,7 +30,7 @@ public class SpringRestDatajpaApplication {
 		//System.out.println("Número de libros en BD después de guardar: " + repository.findAll().size());
 
 		// Borrar un libro
-		//repository.deleteById(1L);
+		/// repository.deleteById(1L);
 		//System.out.println("Número de libros en BD después de eliminar uno: " + repository.findAll().size());
 	}
 
