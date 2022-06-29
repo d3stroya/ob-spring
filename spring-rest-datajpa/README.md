@@ -56,3 +56,4 @@ El acceso se puede realizar desde Postman o Navegador
 4. ASignar un puerto aleatorio: @LocalServerPort private int port.
 5. Click derecho > Generate > SetUp Method
 6. En la clase BookController, click derecho > Generate > Test > Seleccionar métodos deseados.
+7. Crear los métodos
