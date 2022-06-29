@@ -38,3 +38,21 @@ El acceso se puede realizar desde Postman o Navegador
       4. Actualizar un libro existente
       5. Borrar un libro
       6. Borrar todos los libros
+
+### Documentación con Swagger
+1. Crear un paquete config y dentro la clase SwaggerConfig
+2. Descargar Spring-fox-boot-starter desde mvnrepository.com y añadir la dependencia a pom.xml (https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter/3.0.0)
+3. Añadir la anotación @Configurations a la clase SwaggerConfig
+4. En SwaggerConfig crear el método public Docket api(){} con la anotación @Bean. El método retorna un objeto Docket.
+5. Añadir ApiInfo
+6. Ya se puede consultar la documentación desde http://localhost:8080/swager-ui
+7. Si da problemas, añadir a application.properties: spring.mvc.pathmatch.matching-strategy=ant_path_matcher.
+8. Se pueden añadir más datos, por ejemplo @ApiOperation para describir lo que hace cada método.
+
+### Testing
+1. Dentro de test > java > [paquete del proyecto], crear un paquete y su clase test (controller > BookControlerTest).
+2. Añadir la anotación @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT).
+3. Crear las clases TestRestTemplate y @Autowired RestTemplateBuilder.
+4. ASignar un puerto aleatorio: @LocalServerPort private int port.
+5. Click derecho > Generate > SetUp Method
+6. En la clase BookController, click derecho > Generate > Test > Seleccionar métodos deseados.

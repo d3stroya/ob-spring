@@ -33,7 +33,6 @@ public class Ejercicio4Application {
 		// Almacenar ordenadores en base de datos
 		laptopRepository.save(mac);
 		laptopRepository.save(vaio);
-
 	}
 
 }

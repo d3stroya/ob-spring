@@ -7,6 +7,9 @@ package com.d3stroya.ejercicio4.controller;
 
 import com.d3stroya.ejercicio4.entity.Laptop;
 import com.d3stroya.ejercicio4.repository.LaptopRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.hibernate.internal.build.AllowSysOut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +35,14 @@ public class LaptopController {
 
     // 2. CRUD
     // Buscar todos los laptops. Devuelve una lista. FindAll()
+    @ApiOperation("Buscar todos los ordenadores.")
     @GetMapping("api/laptops")
     public List<Laptop> findAll() {
         return laptopRepository.findAll();
     }
 
-    // Buscar un libro por id. FindOneById()
+    // Buscar un laptop por id. FindOneById()
+    @ApiOperation("Buscar un ordenador por id.")
     @GetMapping("/api/laptop/{id}")
     public ResponseEntity<Laptop> findById(@PathVariable Long id) {
         Optional<Laptop> laptopOpt = laptopRepository.findById(id);
@@ -52,6 +57,7 @@ public class LaptopController {
     }
 
     // Crear un laptop
+    @ApiOperation("Crear un ordenador.")
     @PostMapping("/api/laptops")
     public ResponseEntity<Object> create(@RequestBody Laptop laptop) {
         // Compruebo si ya esiste
@@ -64,20 +70,22 @@ public class LaptopController {
         }
 
         // Actualizar un laptop. update()
-        @PutMapping("/api/laptops")
-        public ResponseEntity<Object> update(@RequestBody Laptop laptop) {
-            if(laptop.getId() == null) {
-                log.warn("Trying to update a non existent laptop.");
-                return ResponseEntity.badRequest().build();
-            }
-            if(!laptopRepository.existsById(laptop.getId())) {
-                log.warn("Trying to update a non existent laptop.");
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok(laptopRepository.save(laptop));
+    @ApiOperation("Actualizar los datos de un ordenador.")
+    @PutMapping("/api/laptops")
+    public ResponseEntity<Object> update(@RequestBody Laptop laptop) {
+        if(laptop.getId() == null) {
+            log.warn("Trying to update a non existent laptop.");
+            return ResponseEntity.badRequest().build();
         }
+        if(!laptopRepository.existsById(laptop.getId())) {
+            log.warn("Trying to update a non existent laptop.");
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(laptopRepository.save(laptop));
+    }
 
-        // Borrar un libro. delete()
+        // Borrar un laptop. delete()
+    @ApiOperation("Eliminar un ordenador por id.")
         @DeleteMapping("/api/laptop/{id}")
         public ResponseEntity<Laptop> deleteOne(@PathVariable Long id) {
             if(!laptopRepository.existsById(id)) {
@@ -88,7 +96,8 @@ public class LaptopController {
             return ResponseEntity.noContent().build();
         }
 
-        // Borrar todos los libros. deleteAll()
+        // Borrar todos los laptops. deleteAll()
+    @ApiOperation("Eliminar todos los ordenadores.")
         @DeleteMapping("/api/laptops")
         public ResponseEntity<Laptop> deleteAll() {
             laptopRepository.deleteAll();

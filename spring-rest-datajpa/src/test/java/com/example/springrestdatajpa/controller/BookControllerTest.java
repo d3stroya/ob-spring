@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-// Para testear un controlador hay que lanzar http y recibir responseRequest
+// Para testear un controlador hay que lanzar http y recibir responseRequest. Envía y recibe peticiones desde la propia api, sin usar postman o swagger.
 // Añadir la anotación:
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) // Para lanzar peticiones http
 class BookControllerTest {

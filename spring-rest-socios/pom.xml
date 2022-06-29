@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.d3stroya</groupId>
-	<artifactId>ejercicio4</artifactId>
+	<artifactId>spring-rest-socios</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ejercicio4</name>
+	<name>spring-rest-socios</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>18</java.version>
@@ -42,14 +42,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
